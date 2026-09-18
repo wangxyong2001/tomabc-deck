@@ -1,0 +1,104 @@
+  <!-- ══════════ 示例 · 第 1-8 步（notebook 模板组件示范）══════════ -->
+  <!-- 拷贝为 slides_part1.html 后整页替换为当期内容；class 清单见 README.md -->
+
+  <!-- Step 1 封面：.cover 全幅居中，无孔线；毛笔大字 + 手写副题 + 标签 + 关键数字 -->
+  <section class="slide cover" data-step="1">
+    <div class="cover-kicker">系列名 · 第 N 期 · 主题眉题</div>
+    <h1 class="cover-title">论文大标题<br>可以两行</h1>
+    <div class="cover-sub">副题：一句手写体的话，说明这页讲什么</div>
+    <div class="cover-tags">
+      <span class="tag tag-red">方法</span>
+      <span class="tag tag-line">数据</span>
+      <span class="tag tag-blue">实验</span>
+    </div>
+    <div class="cover-nums">
+      <div><div class="n">7056</div><div class="t">倍 token 压缩</div></div>
+      <div><div class="n">31.7K</div><div class="t">几何审查样本</div></div>
+      <div><div class="n">89.2</div><div class="t">计数榜分</div></div>
+    </div>
+  </section>
+
+  <!-- Step 2 概念区分：grid-3 便签卡 + 关键批注 -->
+  <section class="slide" data-step="2">
+    <div class="kicker">概念 · 先分清三个词 <span class="en">CONCEPTS</span></div>
+    <h1>视觉原语到底是什么</h1>
+    <div class="grid-3">
+      <div class="card"><div class="card-title">概念甲</div><p>一句话定义甲，<span class="mark">关键短语荧光笔</span>强调。</p></div>
+      <div class="card"><div class="card-title t-blue">概念乙</div><p>一句话定义乙，与甲的边界在哪。</p></div>
+      <div class="card"><div class="card-title t-green">概念丙</div><p>一句话定义丙，<strong>加粗重点</strong>。</p></div>
+    </div>
+    <div class="issue"><span class="id">记牢:</span>三者的差异一句话收口。</div>
+  </section>
+
+  <!-- Step 3 全景/分类：纸贴标签 + 批注 + 脚注 -->
+  <section class="slide" data-step="3">
+    <div class="kicker">全景 · 一张图看结构 <span class="en">OVERVIEW</span></div>
+    <h2>四类样本怎么分工</h2>
+    <div class="flow">
+      <span class="tag">计数 10K</span><span class="flow-arrow">→</span>
+      <span class="tag">空间 VQA 9K</span><span class="flow-arrow">→</span>
+      <span class="tag">迷宫 460K</span><span class="flow-arrow">→</span>
+      <span class="tag">路径 125K</span>
+    </div>
+    <div class="note-pin">重点观察：数量悬殊，功能互补——冷启动四件套各自喂什么能力。</div>
+    <div class="foot">——本页出处脚注 ✎</div>
+  </section>
+
+  <!-- Step 4 时间线 -->
+  <section class="slide" data-step="4">
+    <div class="kicker">来龙去脉 <span class="en">TIMELINE</span></div>
+    <h2>一条主线：从指代鸿沟到统一格式</h2>
+    <div class="timeline">
+      <div class="timeline-item"><b>前传：</b>多模态模型对坐标没有指代能力——"左上那个"指不中</div>
+      <div class="timeline-item"><b>2025：</b>统一格式与参照框语法设计完成</div>
+      <div class="timeline-item"><b>现在：</b>数据漏斗 + 后训练，能力涌现</div>
+    </div>
+  </section>
+
+  <!-- Step 5 转折/核心机制：代码/格式便签 -->
+  <section class="slide" data-step="5">
+    <div class="kicker">核心格式 <span class="en">FORMAT</span></div>
+    <h2>把坐标写进 token 流</h2>
+    <pre>&lt;|ref|&gt;目标描述&lt;|/ref|&gt;&lt;|box|&gt;[[x1,y1,x2,y2]]&lt;|/box|&gt;</pre>
+    <div class="grid-2">
+      <div class="card"><div class="card-title">设计取舍</div><p>坐标与文字统一成一个序列，<span class="mark">0-999 量化的盒子坐标</span>。</p></div>
+      <div class="sticker"><div class="s-title">后果</div>Token 因此可被压缩 7056 倍——视觉信号住进了语言流。</div>
+    </div>
+  </section>
+
+  <!-- Step 6 案例/数据：num-row 大数字行 + 对比卡 -->
+  <section class="slide" data-step="6">
+    <div class="kicker">实测 <span class="en">RESULTS</span></div>
+    <h2>纸上指标，真刀真枪</h2>
+    <div class="num-row">
+      <div class="item"><div class="n">89.2</div><div class="t">Pixmo-Count 计数</div></div>
+      <div class="item"><div class="n green">66.9</div><div class="t">DS_Maze 迷宫</div></div>
+      <div class="item"><div class="n blue">56.7</div><div class="t">DS_Path 路径</div></div>
+    </div>
+    <div class="issue"><span class="id">红笔:</span>公共基准均值 ≈ 77，已经压过同代闭源模型。</div>
+  </section>
+
+  <!-- Step 7 机制解读：贴纸 + 箭头流 -->
+  <section class="slide" data-step="7">
+    <div class="kicker">为什么有效 <span class="en">WHY</span></div>
+    <h2>三条因果链</h2>
+    <div class="flow">
+      <div class="card">输入分块压缩<span class="flow-arrow">→</span>视觉先验留在潜空间<span class="flow-arrow">→</span>文字专心推理</div>
+    </div>
+    <div class="grid-3">
+      <div class="card"><div class="card-title t-purple">关键一</div><p>……</p></div>
+      <div class="card"><div class="card-title t-green">关键二</div><p>……</p></div>
+      <div class="card"><div class="card-title t-blue">关键三</div><p>……</p></div>
+    </div>
+  </section>
+
+  <!-- Step 8 深度思考 ①：批注框收口 -->
+  <section class="slide" data-step="8">
+    <div class="kicker">深度思考 · 一 <span class="en">THINK</span></div>
+    <h2>第一个反问</h2>
+    <div class="grid-2">
+      <div class="card"><div class="card-title">表层答案</div><p>……</p></div>
+      <div class="card"><div class="card-title t-blue">追一层</div><p>……</p></div>
+    </div>
+    <div class="issue"><span class="id">结论:</span>一句话把这一层思考钉死。</div>
+  </section>

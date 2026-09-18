@@ -1,0 +1,174 @@
+<!--
+═══════════════════════════════════════════════════════════════════════════════
+  slides_example_part1.html · hand-draw2 模板示例（第 1-8 步）
+  用法：复制为 slides_part1.html，把每步「占位文字」替换为你的内容。
+  每个 step 头部注释标注了该页演示的组件 class；删减组件不影响生成。
+═══════════════════════════════════════════════════════════════════════════════
+-->
+
+<!-- ══════════ Step 1：封面（cover / doodle / kicker / tag-row / cover-metrics）══════════ -->
+<div class="slide active" data-step="1">
+  <div class="cover">
+    <svg class="doodle doodle-star" viewBox="0 0 64 64" width="110" height="110" xmlns="http://www.w3.org/2000/svg">
+      <path d="M32 4 L39 24 L60 25 L44 39 L51 60 L32 48 L13 60 L20 39 L4 25 L25 24 Z" fill="#FFE98A" stroke="#263D5B" stroke-width="3" stroke-linejoin="round"/>
+      <circle cx="32" cy="33" r="8" fill="none" stroke="#263D5B" stroke-width="3"/>
+    </svg>
+    <svg class="doodle doodle-arrow" viewBox="0 0 120 60" width="150" height="75" xmlns="http://www.w3.org/2000/svg">
+      <path d="M6 46 Q 50 8, 108 22" stroke="#FF6B00" stroke-width="4" fill="none" stroke-linecap="round" stroke-dasharray="1 12"/>
+      <path d="M92 8 L 111 23 L 88 34" stroke="#FF6B00" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <svg class="doodle doodle-circle" viewBox="0 0 200 80" width="260" height="104" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8 62 Q 42 10, 96 22 Q 152 34, 192 18" stroke="#49B6E5" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <circle cx="150" cy="46" r="7" fill="#FF6B00"/>
+    </svg>
+    <div class="kicker">系列眉题 · 第 1 集 / 8</div>
+    <div class="cover-title">主标题：一句话讲清本期主题<span class="cover-accent"> 手写强调词</span></div>
+    <span class="sqline sq-wide"></span>
+    <p class="cover-desc">副题段：一段话概括全片要讲什么。可以用 <span class="hl">标记高亮</span> 突出关键词，控制在两行以内更清爽。</p>
+    <div class="tag-row">
+      <span class="tag tag-gold">金色标签 · 最核心</span>
+      <span class="tag tag-blue">蓝色标签 · 技术</span>
+      <span class="tag tag-red">红色标签 · 警示</span>
+    </div>
+    <div class="cover-metrics">
+      <div class="metric"><div class="v">十二</div><div class="l">关键数字说明</div></div>
+      <div class="metric"><div class="v">百分之百</div><div class="l">另一指标说明</div></div>
+      <div class="metric"><div class="v">三</div><div class="l">再一个指标</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ Step 2：系列路线图（series-chips / chip / chip-cur / issue）══════════ -->
+<div class="slide" data-step="2">
+  <div class="kicker">系列全景 · 8 集路线</div>
+  <h1>这一季我们讲什么<span class="sqline"></span></h1>
+  <div class="series-chips">
+    <span class="chip chip-cur">EP1 本期主题（当前）</span>
+    <span class="chip">EP2 第二集主题</span>
+    <span class="chip">EP3 第三集主题</span>
+    <span class="chip">EP4 第四集主题</span>
+    <span class="chip">EP5 第五集主题</span>
+    <span class="chip">EP6 第六集主题</span>
+    <span class="chip">EP7 第七集主题</span>
+    <span class="chip">EP8 第八集主题</span>
+  </div>
+  <div class="issue"><span class="id">路线:</span> 当前这集打头阵——先把核心概念立住，后面每集往下钻一层。</div>
+</div>
+
+<!-- ══════════ Step 3：三卡片 + 徽标（grid-3 / card / card-title / pill）══════════ -->
+<div class="slide" data-step="3">
+  <div class="kicker">概念 · 先分清</div>
+  <h1>三个核心概念<span class="sqline"></span></h1>
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-title">概念一 <span class="pill">v1</span></div>
+      <p>一句话定义。这个概念是全片的基石，后面反复用到。</p>
+      <p>可以用 <code>code</code> 标技术词，比如 <code>config.yml</code>。</p>
+    </div>
+    <div class="card card-warn">
+      <div class="card-title">概念二 <span class="pill pill-orange">warn</span></div>
+      <p>容易混淆的第二个概念。用 <span class="hl">高亮</span> 标出它与概念一的差别。</p>
+    </div>
+    <div class="card card-blue">
+      <div class="card-title">概念三 <span class="pill pill-blue">adv</span></div>
+      <p>进阶概念。三者放一起对比，观众一眼分清边界。</p>
+    </div>
+  </div>
+  <div class="issue"><span class="id">关键:</span> 三个概念不混用，后面所有讨论都建立在这套区分上。</div>
+</div>
+
+<!-- ══════════ Step 4：分层条（layer-strip / layer-box / layer-top / farrow）══════════ -->
+<div class="slide" data-step="4">
+  <div class="kicker">结构 · 分层</div>
+  <h1>配置如何一层层生效<span class="sqline"></span></h1>
+  <div class="layer-strip">
+    <span class="layer-box">默认配置</span><svg class="farrow" width="40" height="20" viewBox="0 0 40 20"><path d="M3 10 Q 17 3, 35 10" stroke="#FF6B00" stroke-width="3.5" fill="none" stroke-linecap="round"/><path d="M28 5 L 36 10 L 28 15" stroke="#FF6B00" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="layer-box">用户级补丁</span><svg class="farrow" width="40" height="20" viewBox="0 0 40 20"><path d="M3 10 Q 17 3, 35 10" stroke="#FF6B00" stroke-width="3.5" fill="none" stroke-linecap="round"/><path d="M28 5 L 36 10 L 28 15" stroke="#FF6B00" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="layer-box">项目级补丁</span><svg class="farrow" width="40" height="20" viewBox="0 0 40 20"><path d="M3 10 Q 17 3, 35 10" stroke="#FF6B00" stroke-width="3.5" fill="none" stroke-linecap="round"/><path d="M28 5 L 36 10 L 28 15" stroke="#FF6B00" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="layer-box layer-top">命令行参数（最高优先）</span>
+  </div>
+  <div class="issue"><span class="id">关键:</span> 层级高的覆盖层级低的——「没有补丁」不是合法状态，缺层直接报错。</div>
+</div>
+
+<!-- ══════════ Step 5：流程条（flow / flow-5 / flow-box / flow-warn / flow-red / fb-sub / farrow）══════════ -->
+<div class="slide" data-step="5">
+  <div class="kicker">流程 · 五步</div>
+  <h1>完整流程五步走<span class="sqline"></span></h1>
+  <div class="flow flow-5" style="margin:28px 0">
+    <div class="flow-box">初始化<br><span class="fb-sub">空上下文起步</span></div>
+    <svg class="farrow" width="40" height="20" viewBox="0 0 40 20"><path d="M3 10 Q 17 3, 35 10" stroke="#FF6B00" stroke-width="3.5" fill="none" stroke-linecap="round"/><path d="M28 5 L 36 10 L 28 15" stroke="#FF6B00" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div class="flow-box">装配插件<br><span class="fb-sub">按依赖序加载</span></div>
+    <svg class="farrow" width="40" height="20" viewBox="0 0 40 20"><path d="M3 10 Q 17 3, 35 10" stroke="#FF6B00" stroke-width="3.5" fill="none" stroke-linecap="round"/><path d="M28 5 L 36 10 L 28 15" stroke="#FF6B00" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div class="flow-box flow-warn">解析配置<br><span class="fb-sub">逐行建 entry · 按层应用补丁</span></div>
+    <svg class="farrow" width="40" height="20" viewBox="0 0 40 20"><path d="M3 10 Q 17 3, 35 10" stroke="#FF6B00" stroke-width="3.5" fill="none" stroke-linecap="round"/><path d="M28 5 L 36 10 L 28 15" stroke="#FF6B00" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div class="flow-box">等待就绪<br><span class="fb-sub">整棵树 settle</span></div>
+    <svg class="farrow" width="40" height="20" viewBox="0 0 40 20"><path d="M3 10 Q 17 3, 35 10" stroke="#FF6B00" stroke-width="3.5" fill="none" stroke-linecap="round"/><path d="M28 5 L 36 10 L 28 15" stroke="#FF6B00" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div class="flow-box flow-red">启动审计<br><span class="fb-sub">点名缺服务的插件</span></div>
+  </div>
+  <div class="issue"><span class="id">关键:</span> 最后一步不通过就整体失败——失败信息要能点名「哪个插件在等哪个服务」。</div>
+</div>
+
+<!-- ══════════ Step 6：四象限（grid-4 / card-blue / card-warn / card-red / src / tag）══════════ -->
+<div class="slide" data-step="6">
+  <div class="kicker">分类 · 四象限</div>
+  <h1>四类情况怎么处理<span class="sqline"></span></h1>
+  <div class="grid-4">
+    <div class="card card-blue">
+      <div class="card-title">常态</div>
+      <p>大多数情况走这里，成本最低。</p>
+      <div style="margin-top:8px"><span class="tag tag-blue">常见</span></div>
+    </div>
+    <div class="card card-warn">
+      <div class="card-title">边界</div>
+      <p>偶发但可预期，需要兜底逻辑。</p>
+      <div style="margin-top:8px"><span class="tag">偶发</span></div>
+    </div>
+    <div class="card card-red">
+      <div class="card-title">异常</div>
+      <p>不常见但破坏性大，要快速失败。</p>
+      <div style="margin-top:8px"><span class="tag tag-red">最危险</span></div>
+    </div>
+    <div class="card">
+      <div class="card-title">未知</div>
+      <p>无法归类的，先记录再人工介入。</p>
+      <div style="margin-top:8px"><span class="tag">兜底</span></div>
+    </div>
+  </div>
+  <div class="issue"><span class="id">原则:</span> 给每种情况一个明确的去处，而不是让错误悄悄溜过去。</div>
+  <div class="src">出处示例：src/lib/config.rs:120-160</div>
+</div>
+
+<!-- ══════════ Step 7：对比表（cmp-table / row-self）══════════ -->
+<div class="slide" data-step="7">
+  <div class="kicker">对比 · 方案取舍</div>
+  <h1>各家方案横向对比<span class="sqline"></span></h1>
+  <table class="cmp-table">
+    <tr><th>方案</th><th>配置成本</th><th>灵活度</th><th>学习曲线</th></tr>
+    <tr class="row-self"><td>本方案</td><td>一行配置</td><td>高</td><td>低</td></tr>
+    <tr><td>方案 B</td><td>两到四个文件</td><td>中</td><td>中</td></tr>
+    <tr><td>方案 C</td><td>十行以上</td><td>高</td><td>高</td></tr>
+    <tr><td>方案 D</td><td>不可配置</td><td>低</td><td>低</td></tr>
+  </table>
+  <div class="issue"><span class="id">结论:</span> 自研方案在配置成本上碾压——这正是我们选择它的核心理由。</div>
+</div>
+
+<!-- ══════════ Step 8：深度思考 ①（issue / hl / hl2 / p0 / p1 / p2）══════════ -->
+<div class="slide" data-step="8">
+  <div class="kicker">深度思考 · 第 1 层</div>
+  <h1>第一个洞察：<span class="hl">表象之下才是根因</span></h1>
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-title"><span class="p0">P0 级</span> · 表象</div>
+      <p>报错信息指向下游，追着它修永远修不好。</p>
+    </div>
+    <div class="card card-blue">
+      <div class="card-title"><span class="p1">P1 级</span> · 根因</div>
+      <p>上游的默认值太小，悄悄截断了输出。</p>
+    </div>
+    <div class="card card-warn">
+      <div class="card-title"><span class="p2">P2 级</span> · 沉淀</div>
+      <p>把经验写进文档与测试，下次不再踩。</p>
+    </div>
+  </div>
+  <div class="issue"><span class="id">核心洞察:</span> 最隐蔽的失败是<span class="hl2">不报错</span>的失败——先问「为什么坏」，再问「怎么修」。</div>
+</div>

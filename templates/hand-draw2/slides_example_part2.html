@@ -1,0 +1,153 @@
+<!--
+═══════════════════════════════════════════════════════════════════════════════
+  slides_example_part2.html · hand-draw2 模板示例（第 9-16 步）
+  用法：复制为 slides_part2.html，把每步「占位文字」替换为你的内容。
+═══════════════════════════════════════════════════════════════════════════════
+-->
+
+<!-- ══════════ Step 9：十个要点（grid-5 × 2 / card-mini）══════════ -->
+<div class="slide" data-step="9">
+  <div class="kicker">边界 · 十个要点</div>
+  <h1>十个必须守住的边界<span class="sqline"></span></h1>
+  <div class="grid-5">
+    <div class="card card-mini"><div class="card-title">要点一</div><p>一句话说明</p></div>
+    <div class="card card-mini"><div class="card-title">要点二</div><p>一句话说明</p></div>
+    <div class="card card-mini"><div class="card-title">要点三</div><p>一句话说明</p></div>
+    <div class="card card-mini"><div class="card-title">要点四</div><p>一句话说明</p></div>
+    <div class="card card-mini"><div class="card-title">要点五</div><p>一句话说明</p></div>
+  </div>
+  <div class="grid-5">
+    <div class="card card-mini"><div class="card-title">要点六</div><p>一句话说明</p></div>
+    <div class="card card-mini"><div class="card-title">要点七</div><p>一句话说明</p></div>
+    <div class="card card-mini"><div class="card-title">要点八</div><p>一句话说明</p></div>
+    <div class="card card-mini"><div class="card-title">要点九</div><p>一句话说明</p></div>
+    <div class="card card-mini"><div class="card-title">要点十</div><p>一句话说明</p></div>
+  </div>
+  <div class="issue"><span class="id">关键:</span> 十点不追求面面俱到，每一点都要能在实际代码里找到对应。</div>
+</div>
+
+<!-- ══════════ Step 10：代码走读（pre / tag-row / tag）══════════ -->
+<div class="slide" data-step="10">
+  <div class="kicker">代码 · 关键片段</div>
+  <h1>核心实现长这样<span class="sqline"></span></h1>
+  <div class="tag-row" style="justify-content:flex-start;margin-bottom:12px">
+    <span class="tag tag-blue">只展示关键片段</span>
+    <span class="tag">完整文件见 GitHub</span>
+  </div>
+  <pre>// 修复前：硬编码上限，输出悄悄截断
+max_tokens = 4096
+
+// 修复后：够用而非省用
+max_tokens = 262144
+// 自动重试：瞬时错误指数退避，永久错误立即上报
+if err.is_transient() &amp;&amp; attempt &lt; policy.max_retries {
+    tokio::time::sleep(Duration::from_secs_f64(delay)).await;
+    delay *= 2.0;
+}</pre>
+  <div class="issue"><span class="id">写法:</span> 代码只放 5-20 行关键部分，不需要展示的用 <code>…</code> 省略。</div>
+</div>
+
+<!-- ══════════ Step 11：隐患（grid-2 / card-warn / card-red / issue）══════════ -->
+<div class="slide" data-step="11">
+  <div class="kicker">隐患 · 三把刀</div>
+  <h1>做了就等于安全了吗？<span class="sqline"></span></h1>
+  <div class="grid-2">
+    <div class="card card-red">
+      <div class="card-title">陷阱一：不分类就重试</div>
+      <p>对永久错误也重试三次——白等几十秒，最后依然失败。</p>
+    </div>
+    <div class="card card-warn">
+      <div class="card-title">陷阱二：退避太短</div>
+      <p>每次固定等一秒，等于持续施压，把故障放大成雪崩。</p>
+    </div>
+  </div>
+  <div class="issue"><span class="id">解法:</span> 先把错误分成瞬时 / 永久两类，再决定重试还是上报——<span class="hl">分类比重试本身更重要</span>。</div>
+</div>
+
+<!-- ══════════ Step 12：总结五句话（takeaways / tk / tk-num）══════════ -->
+<div class="slide" data-step="12">
+  <div class="kicker">小结 · 五句话带走</div>
+  <h1>这一期讲完，记住五句<span class="sqline"></span></h1>
+  <div class="takeaways">
+    <div class="tk"><span class="tk-num">一</span>第一句：最隐蔽的失败是不报错的失败。</div>
+    <div class="tk"><span class="tk-num">二</span>第二句：先诊断根因，再动手修复。</div>
+    <div class="tk"><span class="tk-num">三</span>第三句：默认值要够用，而不是省到极限。</div>
+    <div class="tk"><span class="tk-num">四</span>第四句：分类比重试本身更重要。</div>
+    <div class="tk"><span class="tk-num">五</span>第五句：所有没人改的参数都是定时炸弹。</div>
+  </div>
+</div>
+
+<!-- ══════════ Step 13：不能照搬（cannot-list / cannot-title / cannot-row / tag）══════════ -->
+<div class="slide" data-step="13">
+  <div class="kicker">反思 · 哪些不能照搬</div>
+  <h1>别人的方案，五条不能照搬<span class="sqline"></span></h1>
+  <div class="cannot-list">
+    <div class="cannot-title">✗ 直接抄过来会出问题的地方</div>
+    <div class="cannot-row">
+      <span class="tag tag-red">① 默认值来自他们的场景</span>
+      <span class="tag tag-red">② 错误处理依赖他们的架构</span>
+      <span class="tag tag-red">③ 配置格式绑死他们的生态</span>
+      <span class="tag tag-red">④ 日志约定无法对接你的审计</span>
+      <span class="tag tag-red">⑤ 升级路径不可迁移</span>
+    </div>
+  </div>
+  <div class="issue"><span class="id">原则:</span> 抄思路，不抄参数——每个数字都要在自己的场景里重新推导。</div>
+</div>
+
+<!-- ══════════ Step 14：深度思考 ②（grid-3 / issue）══════════ -->
+<div class="slide" data-step="14">
+  <div class="kicker">深度思考 · 第 2 层</div>
+  <h1>第二个洞察：<span class="hl">诊断比修复重要</span></h1>
+  <div class="grid-3">
+    <div class="card card-red">
+      <div class="card-title">表象</div>
+      <p>报 HTTP 五百、XML 语法错误——追着表象修。</p>
+    </div>
+    <div class="card card-warn">
+      <div class="card-title">中间层</div>
+      <p>输出被截断，畸形 XML 是截断的下游效应。</p>
+    </div>
+    <div class="card card-blue">
+      <div class="card-title">根因</div>
+      <p>硬编码上限太小，写大文件时必然触发。</p>
+    </div>
+  </div>
+  <div class="issue"><span class="id">方法论:</span> 面对错误，先问「为什么坏」再问「怎么修」——跳过分诊断就修，永远追着表象跑。</div>
+</div>
+
+<!-- ══════════ Step 15：行动清单（flow / flow-warn / flow-red / fb-sub / issue）══════════ -->
+<div class="slide" data-step="15">
+  <div class="kicker">行动 · 落地三件事</div>
+  <h1>下阶段动手清单<span class="sqline"></span></h1>
+  <div class="flow" style="margin:28px 0">
+    <div class="flow-box flow-red">先修根因<br><span class="fb-sub">提升上限到合理值</span></div>
+    <svg class="farrow" width="40" height="20" viewBox="0 0 40 20"><path d="M3 10 Q 17 3, 35 10" stroke="#FF6B00" stroke-width="3.5" fill="none" stroke-linecap="round"/><path d="M28 5 L 36 10 L 28 15" stroke="#FF6B00" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div class="flow-box flow-warn">加自动重试<br><span class="fb-sub">瞬时 / 永久分家</span></div>
+    <svg class="farrow" width="40" height="20" viewBox="0 0 40 20"><path d="M3 10 Q 17 3, 35 10" stroke="#FF6B00" stroke-width="3.5" fill="none" stroke-linecap="round"/><path d="M28 5 L 36 10 L 28 15" stroke="#FF6B00" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div class="flow-box">写测试验证<br><span class="fb-sub">修复本身可被测量</span></div>
+  </div>
+  <div class="issue"><span class="id">原则:</span> 防御不是修补——是设计一套让同类错误没法再发生的机制。</div>
+</div>
+
+<!-- ══════════ Step 16：总结 + 下期预告（cover-end / takeaways / next-ep）══════════ -->
+<div class="slide" data-step="16">
+  <div class="cover cover-end">
+    <svg class="doodle doodle-star" viewBox="0 0 64 64" width="90" height="90" xmlns="http://www.w3.org/2000/svg">
+      <path d="M32 4 L39 24 L60 25 L44 39 L51 60 L32 48 L13 60 L20 39 L4 25 L25 24 Z" fill="#FFE98A" stroke="#263D5B" stroke-width="3" stroke-linejoin="round"/>
+      <circle cx="32" cy="33" r="8" fill="none" stroke="#263D5B" stroke-width="3"/>
+    </svg>
+    <div class="kicker">总结 · 下期见</div>
+    <div class="cover-title" style="font-size:64px">结尾大标题：<span class="cover-accent">一句话收束全片</span></div>
+    <span class="sqline sq-wide"></span>
+    <div class="takeaways">
+      <div class="tk"><span class="tk-num">一</span>第一句总结，呼应开头。</div>
+      <div class="tk"><span class="tk-num">二</span>第二句总结，落到行动。</div>
+      <div class="tk"><span class="tk-num">三</span>第三句总结，留下余味。</div>
+    </div>
+    <div class="next-ep">
+      <div class="next-label">NEXT EP · 下期预告</div>
+      <div class="next-title">下期主题标题</div>
+      <div class="next-desc">一句话预告下期要讲什么，勾住观众点下一集。</div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--
+═══════════════════════════════════════════════════════════════════════════════
+  EP{NN} · {标题} — TomABC
+═══════════════════════════════════════════════════════════════════════════════
+  hand-draw2 模板 · 壳文件（tomabc-deck 技能 templates/hand-draw2/shell.html）
+  本壳不直接使用：<style> / 顶栏 logo / page-label / 幻灯片全部由 gen_deck.py 替换。
+
+  用法：
+    1. 复制 templates/hand-draw2/ 到 video/ep{NN}/（gen_deck.py、logo.html、slides_example_*.html）
+    2. 改 gen_deck.py 顶部常量（① 期号/标题/页标 ② 输出路径）
+    3. 写 slides_part1.html（第 1-8 步）+ slides_part2.html（第 9-16 步），参考 slides_example_*
+    4. python3 gen_deck.py → 校验 16 步 + class 检查 → 生成 docs/html/video-{NN}-{topic}.html
+    5. 录制：Playwright 打开生成文件，ffprobe 音频时长 +0.5s buffer 推进 #nextBtn
+═══════════════════════════════════════════════════════════════════════════════
+-->
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1920,initial-scale=0.5">
+  <title>__TITLE__</title>
+  <style>
+    /* 由 gen_deck.py 整体替换为 hand-draw2.css（doodle 手绘风） */
+  </style>
+</head>
+<body>
+  <!-- 品牌顶栏：logo 与 page-label 由 gen_deck.py 替换 -->
+  <div class="sticky-top">
+    <a class="logo" href="https://tomabc.com">
+      <!-- 由 gen_deck.py 替换为 ai.tomabc.com 同款（猫咪 SVG + TomABC 文字） -->
+      <svg viewBox="0 0 36 36" width="60" height="60" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
+        <rect width="36" height="36" fill="#FFFFFF"/>
+      </svg>
+      <div>
+        <div class="logo-top">TomABC</div>
+        <div class="logo-sub">Always Be Curious</div>
+      </div>
+    </a>
+    <div class="page-label">__PAGE_LABEL__</div>
+  </div>
+
+  <!-- 幻灯片内容由 gen_deck.py 在此拼接（第 1-16 步） -->
+
+  <!-- 导航控件 -->
+  <div class="nav">
+    <button id="prevBtn" onclick="prevStep()">&larr;</button>
+    <span class="step-indicator" id="stepIndicator"></span>
+    <button id="nextBtn" onclick="nextStep()">&rarr;</button>
+  </div>
+
+  <script>
+  // 步数自适应：增删 .slide 无需改这里
+  var step = 1, total = document.querySelectorAll('.slide').length;
+  function update() {
+    document.querySelectorAll('.slide').forEach(function(s){s.classList.remove('active');});
+    document.querySelector('.slide[data-step="'+step+'"]').classList.add('active');
+    document.getElementById('stepIndicator').textContent = step+'/'+total;
+    document.getElementById('prevBtn').disabled = step===1;
+    document.getElementById('nextBtn').disabled = step===total;
+  }
+  function nextStep(){if(step<total){step++;update()}}
+  function prevStep(){if(step>1){step--;update()}}
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();nextStep()}
+    if(e.key==='ArrowLeft'){e.preventDefault();prevStep()}
+  });
+  update();
+  </script>
+</body>
+</html>

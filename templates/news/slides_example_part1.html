@@ -1,0 +1,116 @@
+<!-- 示例第 1-8 步（占位骨架，展示 news 模板组件用法；每期照此结构换内容） -->
+
+<!-- s1 封面：开场问候 + 日期 + 今日数据 -->
+<div class="slide cover" data-step="1">
+  <div class="cover-inner">
+    <div class="cover-top">
+      <div class="cover-date">
+        <span class="big">09-02</span>
+        星期三 · AI DAILY BRIEF
+      </div>
+      <div class="cover-noon">晚间新闻播报</div>
+    </div>
+    <div>
+      <div class="cover-title">每日简报<span class="red">·</span>带你三分钟<br>看懂今日 AI 世界</div>
+      <div class="cover-stats">
+        <div class="stat"><span class="n">12</span><span class="t">今日简报</span></div>
+        <div class="stat"><span class="n">5</span><span class="t">行业动态</span></div>
+        <div class="stat"><span class="n">5</span><span class="t">安全动态</span></div>
+        <div class="stat"><span class="n">2</span><span class="t">工具开源</span></div>
+      </div>
+    </div>
+    <div class="cover-badges">
+      <span class="chip">行业</span>
+      <span class="chip sec-safety">安全</span>
+      <span class="chip sec-tools">工具</span>
+      <span class="chip sec-view">今日观察</span>
+    </div>
+  </div>
+</div>
+
+<!-- s2 快报头条：四条一句话速览 -->
+<div class="slide" data-step="2">
+  <div class="kicker">HEADLINES <span class="en">快报头条</span></div>
+  <div class="h1">今天最值得关注的<br>四件事</div>
+  <div class="flash-list">
+    <div class="flash-row"><span class="no">01</span><span class="t">某 AI 初创 5 个月冲到 32 亿美元估值</span><span class="d">行业</span></div>
+    <div class="flash-row"><span class="no">02</span><span class="t">前沿大模型再次刷新安全关键门槛</span><span class="d">行业</span></div>
+    <div class="flash-row safety"><span class="no">03</span><span class="t">评估机构 API 失窃，烧掉 60 万美元</span><span class="d">安全</span></div>
+    <div class="flash-row safety"><span class="no">04</span><span class="t">恶意软件植入「核武器提示词」干扰 AI</span><span class="d">安全</span></div>
+  </div>
+  <div class="ticker"><b>快讯</b>··· 低代码 AI 平台漏洞正被大规模利用 ······ 某头部实验室内部文化遭质疑</div>
+</div>
+
+<!-- s3 深度① 行业：独角兽 -->
+<div class="slide" data-step="3">
+  <div class="kicker">INDUSTRY <span class="en">行业动态 · 深度</span></div>
+  <div class="h2">YC 史上最快独角兽</div>
+  <div class="panel ghost-glow">
+    <div class="title"><span class="no">01</span>五个月，估值翻十倍</div>
+    <div class="body">某 AI 模型训练初创完成新一轮融资，估值 32 亿美元，距 4 月 3 亿美元 A 轮仅过去 5 个月，成为 Y Combinator 旗下增速最快的独角兽。</div>
+    <div class="metric"><div class="m"><b>$3.2B</b>最新估值</div><div class="m"><b>5 个月</b>A轮→独角兽</div></div>
+  </div>
+  <div class="src">来源：TechCrunch AI</div>
+  <div class="ticker"><b>行业</b>资本正在用真金白银投票 AI 基建层</div>
+</div>
+
+<!-- s4 板块转场：安全动态 -->
+<div class="slide" data-step="4">
+  <div class="section-ghost">SECURITY</div>
+  <div class="kicker">SECTION 02</div>
+  <div class="section-bar">
+    <div class="bar"></div>
+    <div class="section-zh">安全动态<span class="sub">SECURITY WATCH · 5 条</span></div>
+  </div>
+  <div class="section-sub">当模型开始会「攻击」，安全事件也换上了新剧本：失窃的密钥、投毒的提示词、被盯上的 AI 平台。</div>
+  <div class="ticker"><b>安全</b>今日安全版：密钥失窃 · 提示词投毒 · 平台漏洞</div>
+</div>
+
+<!-- s5 安全深度①：API 密钥 -->
+<div class="slide" data-step="5">
+  <div class="kicker">SECURITY <span class="en">安全动态 · 深度</span></div>
+  <div class="h2">一张密钥，烧掉 60 万美元</div>
+  <div class="panel">
+    <div class="title"><span class="no safety">06</span>AI 评估机构 METR 遭遇两起重大安全事件</div>
+    <div class="body">外部人员盗用 API 密钥，消耗了价值约 60 万美元的公开模型额度。该机构专门评估前沿模型执行长周期智能体任务的能力——攻击者盯上的，正是「算力最贵」的那把钥匙。</div>
+    <div class="metric"><div class="m"><b>$600K</b>被消耗额度</div><div class="m"><b>2</b>起安全事件</div></div>
+  </div>
+  <div class="src">来源：The Hacker News</div>
+  <div class="ticker"><b>安全</b>红队机构自己先被打了</div>
+</div>
+
+<!-- s6 安全深度②：GuardBreaker -->
+<div class="slide" data-step="6">
+  <div class="kicker">SECURITY <span class="en">安全动态 · 深度</span></div>
+  <div class="h2">恶意软件里的「核弹提示词」</div>
+  <div class="panel">
+    <div class="title"><span class="no safety">07</span>GuardBreaker：让 AI 分析工具「罢工」</div>
+    <div class="body">亲俄组织 UAC-0099 在恶意软件中植入精心构造的提示词，专门干扰 AI 辅助分析——你越依赖模型看样本，越容易被一句话带偏。</div>
+  </div>
+  <div class="src">来源：ESET 披露 · 安全研究社区</div>
+  <div class="ticker"><b>安全</b>攻击面正在从「代码」扩展到「提示词」</div>
+</div>
+
+<!-- s7 工具与开源：两条快报 -->
+<div class="slide" data-step="7">
+  <div class="kicker">TOOLS <span class="en">工具与开源</span></div>
+  <div class="h2">今天的两件「小」事</div>
+  <div class="items">
+    <div class="item tools"><i>01</i><div><div class="t">安卓系统更新：专治「晕车看手机」</div><div class="d">新增防晕动症功能，无障碍能力增强，部分特性深度绑定 Gemini。</div></div></div>
+    <div class="item tools"><i>02</i><div><div class="t">Fable 5.1 发布：更便宜、更少误拦</div><div class="d">降低 Token 成本，同时缓解安全护栏「过度拦截」问题。</div></div></div>
+  </div>
+  <div class="ticker"><b>工具</b>端侧体验 · 模型价格，双线开卷</div>
+</div>
+
+<!-- s8 今日观察 -->
+<div class="slide" data-step="8">
+  <div class="kicker">THINKING <span class="en">今日观察</span></div>
+  <div class="h2">商业扩张 × 安全治理：<br>一场正在进行的拔河</div>
+  <div class="observe">
+    <div class="q">“</div>
+    <div class="txt">一端是估值暴涨的初创与规模化的 AI Agent，另一端是不断升级的攻防对抗。今天的所有新闻，几乎都是这根绳子上的刻度。</div>
+    <div class="from">—— 小编按 · 2026-09-02</div>
+  </div>
+  <div class="tagline"><span class="tg hot">商业扩张</span><span class="tg">安全治理</span><span class="tg">攻防对抗</span></div>
+  <div class="ticker"><b>观察</b>本期资讯的四组关键词，请看下页拆解</div>
+</div>
